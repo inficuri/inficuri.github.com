@@ -1,0 +1,19 @@
+# Jekyll
+exclude: nbproject, README.md, manifest.yml, rakefile.rb, Gemfile, Gemfile.lock, update.sh
+permalink:   /:title
+url:         http://www.uberobert.com
+
+safe:        false
+auto:        false
+
+future:      false
+pygments:    true
+markdown:    rdiscount
+
+# Site
+uberobert:
+    title: Uberobert
+
+# Only First P Plugin
+only_first_p:
+    show_read_more_link: false

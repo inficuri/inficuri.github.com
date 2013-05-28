@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Zsh plugin for Nova CLI</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="/vendor/twitter-bootstrap/bootstrap/css/bootstrap.css" rel="stylesheet">
+<link href="/vendor/twitter-bootstrap/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="/vendor/font-awesome/latest/css/font-awesome.css" rel="stylesheet">
+<link href="/vendor/google-code-prettify/google-code-prettify/prettify.css" rel="stylesheet">
+<link href="/assets/css/main.css" rel="stylesheet">
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="/vendor/twitter-bootstrap/bootstrap/js/bootstrap.js"></script>
+<script src="//twitterjs.googlecode.com/svn/trunk/src/twitter.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="/vendor/google-code-prettify/google-code-prettify/prettify.js"></script>
+<script type="text/javascript" src="/assets/js/app.js"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37214884-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    </head>
+    <body id="page-zsh_plugin_nova_cli">
+        
+        <div class="container">
+            <div class="hero-unit">
+    <div class="row">            
+        <div class="span12">
+            <div class="row">
+                <div class="span6 intro">
+                    <div class="leader">
+                        <a href="//uberobert.com" id="logo"></a>
+                        <h1><a href="/">Uber<br />Robert</a></h1>    
+                        <p>Technology blog about stuff I love!</p>
+                    </div>
+                </div>
+                <div class="span5 stay-updated">
+                    <div id="twitter-status" class="well">
+                        <i class=icon-twitter></i>
+                        <div id="tweet"></div>
+                        <a href="//twitter.com/Robert_Birnie">Follow @Robert_Birnie &raquo;</a>
+                    </div>                    
+                </div>                        
+            </div>
+
+        <div class="row newer-older">
+
+
+
+
+
+
+
+        
+        
+    </div>
+    
+
+        </div>
+    </div>
+</div>
+
+            <div class="row">
+                <div class="span8">
+                    
+                            
+
+    
+
+<div class="post">
+    <div class="section section-post-meta post">    
+        <h2>            
+            <a href="/zsh_plugin_nova_cli">
+            
+                <i class="indicator-icon icon-bullhorn"></i>
+                            
+                Zsh plugin for Nova CLI
+            </a>
+        </h2>
+        <p class="meta">
+            January 11, 2013 by <a href="http://uberobert.com">Robert Birnie</a>
+        </p>
+    </div>
+    
+
+
+
+<p>After going through making the tutorial for <a href="https://github.com/openstack/python-novaclient">OpenStack CLI</a>, I got a little irritated at how long the commands are; primarily the boot command with its dozen arguments. So I made a plugin for <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a> to autocomplete the madness. The plugin is located in my github repo <a href="https://github.com/rbirnie/oh-my-zsh-nova">oh-my-zsh-nova</a>. To install just copy the nova directory into the oh-my-zsh plugins directory.</p>
+
+<div class="highlight"><pre><code class="bash">git clone https://github.com/rbirnie/oh-my-zsh-nova.git
+cp -r ./oh-my-zsh-nova/nova ~/.oh-my-zsh/custom/plugins/
+vi ~/.zshrc <span class="c"># add &#39;nova&#39; to your plugins</span>
+</code></pre></div>
+
+
+<p>And that's it, you're now rocking some autocomplete goodness! To try it out just type nova and hit tab. Many of the subcommands are in there too, try nova boot {tab}. Sadly the format of how the zsh autocomplete works is weak with hints at positional arguments that don't have a corresponding -s|--switch. For example this bad boy:</p>
+
+<div class="highlight"><pre><code class="bash">usage: nova flavor-create <span class="o">[</span>--ephemeral &lt;ephemeral&gt;<span class="o">]</span> <span class="o">[</span>--swap &lt;swap&gt;<span class="o">]</span>
+                          <span class="o">[</span>--rxtx-factor &lt;factor&gt;<span class="o">]</span> <span class="o">[</span>--is-public &lt;is-public&gt;<span class="o">]</span>
+                          &lt;name&gt; &lt;id&gt; &lt;ram&gt; &lt;disk&gt; &lt;vcpus&gt;
+
+Create a new flavor
+
+Positional arguments:
+  &lt;name&gt;                Name of the new flavor
+  &lt;id&gt;                  Unique ID <span class="o">(</span>integer or UUID<span class="o">)</span> <span class="k">for </span>the new flavor
+  &lt;ram&gt;                 Memory size in MB
+  &lt;disk&gt;                Disk size in GB
+  &lt;vcpus&gt;               Number of vcpus
+
+Optional arguments:
+  --ephemeral &lt;ephemeral&gt;
+                        Ephemeral space size in GB <span class="o">(</span>default 0<span class="o">)</span>
+  --swap &lt;swap&gt;         Swap space size in MB <span class="o">(</span>default 0<span class="o">)</span>
+  --rxtx-factor &lt;factor&gt;
+                        RX/TX factor <span class="o">(</span>default 1<span class="o">)</span>
+  --is-public &lt;is-public&gt;
+                        Make flavor accessible to the public <span class="o">(</span>default <span class="nb">true</span><span class="o">)</span>
+</code></pre></div>
+
+
+<p>This thing is a nightmare for autocomplete as the zsh plugin doesn't give you good hints for the <em>name</em>, <em>id</em>, etc. I've got the optional switches, but that's not extremely helpful if you don't know the rest. I'm looking around still to see if there is another syntax for zsh autocomplete to make this a little easier. I'll keep you posted on the progress, but I think this is a great start.</p>
+
+<p>Once again:<br>
+My <a href="https://github.com/rbirnie">github</a><br>
+The <a href="https://github.com/rbirnie/oh-my-zsh-nova">nova plugin</a><br>
+The <a href="https://github.com/openstack/python-novaclient">nova installer</a><br>
+And <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a></p>
+
+
+
+    <div class="section comments">
+        <i class="comment-icon icon-comment-alt"></i>
+        <div id="disqus_thread">
+        </div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'uberobert'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>        
+    </div>        
+
+</div>
+                                                          
+                </div>
+                <div class="span4 sidebar">                    
+                    <div class="about well">
+
+        <h2>
+            <i class="icon-question-sign"></i> 
+            What is Going on Here?
+        </h2>
+        <p>
+            <strong>Uberobert is a personal blog/site for me! Robert Birnie.</strong>
+        </p>
+        <p> 
+            I'm an IT professional, Systems Engineer and budding entrepreneur.
+        </p>
+        <a href="/about.html">See more.</a>
+</div>
+                    <div class="well">
+    <h2><i class="icon-star-empty"></i> Recent posts</h2>
+          <ul class="listless">
+      
+          <li>
+              
+              Zsh plugin for Nova CLI
+              
+          </li>
+      
+      </ul>
+    <a href="/archive/" class="btn">All posts <i class="icon-arrow-right"></i></a>   
+</div>
+                    
+<div class="well">
+    <h2><i class="icon-github-sign"></i> Stay up to Date</h2>
+    <ul class="repository-list">
+        <li><i class="icon-rss"></i> <a href="http://feeds.feedburner.com/uberobert">RSS</a></li>
+        <li><i class="icon-envelope"></i> <a href="http://feedburner.google.com/fb/a/mailverify?uri=Uberobert&amp;loc=en_US">Email</a></li>
+        <li><i class="icon-twitter"></i> <a href="http://twitter.com/Robert_Birnie">Twitter</a></li>
+        <li><i class="icon-github"></i> <a href="https://github.com/rbirnie">github</a></li>
+        <li class="icon"><a href="/subscribe">More</a></li>
+    </ul>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Uberobert</title>
+  <link href="http://www.uberobert.com/feed.xml" rel="self" />
+  <link href="/feed.xml" />
+  <updated>2013-05-24T13:42:31+08:00</updated>
+  <id>http://www.uberobert.com</id>
+  <author>
+    <name>Robert Birnie</name>
+    <email>robert@uberobert.com</email>
+  </author>
+  
+  <entry>
+    <title>Zsh plugin for Nova CLI</title>
+    <link href="http://www.uberobert.com/zsh_plugin_nova_cli" />
+    <updated>2013-01-11T00:00:00+08:00</updated>
+    <id>http://www.uberobert.com/zsh_plugin_nova_cli</id>
+    <content type="html">
+      &lt;p&gt;After going through making the tutorial for &lt;a href=&quot;https://github.com/openstack/python-novaclient&quot;&gt;OpenStack CLI&lt;/a&gt;, I got a little irritated at how long the commands are; primarily the boot command with its dozen arguments. So I made a plugin for &lt;a href=&quot;https://github.com/robbyrussell/oh-my-zsh&quot;&gt;oh-my-zsh&lt;/a&gt; to autocomplete the madness. The plugin is located in my github repo &lt;a href=&quot;https://github.com/rbirnie/oh-my-zsh-nova&quot;&gt;oh-my-zsh-nova&lt;/a&gt;. To install just copy the nova directory into the oh-my-zsh plugins directory.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;git clone https://github.com/rbirnie/oh-my-zsh-nova.git
+cp -r ./oh-my-zsh-nova/nova ~/.oh-my-zsh/custom/plugins/
+vi ~/.zshrc &lt;span class=&quot;c&quot;&gt;# add &amp;#39;nova&amp;#39; to your plugins&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And that's it, you're now rocking some autocomplete goodness! To try it out just type nova and hit tab. Many of the subcommands are in there too, try nova boot {tab}. Sadly the format of how the zsh autocomplete works is weak with hints at positional arguments that don't have a corresponding -s|--switch. For example this bad boy:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;usage: nova flavor-create &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;--ephemeral &amp;lt;ephemeral&amp;gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;--swap &amp;lt;swap&amp;gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+                          &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;--rxtx-factor &amp;lt;factor&amp;gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;--is-public &amp;lt;is-public&amp;gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+                          &amp;lt;name&amp;gt; &amp;lt;id&amp;gt; &amp;lt;ram&amp;gt; &amp;lt;disk&amp;gt; &amp;lt;vcpus&amp;gt;
+
+Create a new flavor
+
+Positional arguments:
+  &amp;lt;name&amp;gt;                Name of the new flavor
+  &amp;lt;id&amp;gt;                  Unique ID &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;integer or UUID&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;the new flavor
+  &amp;lt;ram&amp;gt;                 Memory size in MB
+  &amp;lt;disk&amp;gt;                Disk size in GB
+  &amp;lt;vcpus&amp;gt;               Number of vcpus
+
+Optional arguments:
+  --ephemeral &amp;lt;ephemeral&amp;gt;
+                        Ephemeral space size in GB &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;default 0&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  --swap &amp;lt;swap&amp;gt;         Swap space size in MB &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;default 0&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  --rxtx-factor &amp;lt;factor&amp;gt;
+                        RX/TX factor &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;default 1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  --is-public &amp;lt;is-public&amp;gt;
+                        Make flavor accessible to the public &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;default &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This thing is a nightmare for autocomplete as the zsh plugin doesn't give you good hints for the &lt;em&gt;name&lt;/em&gt;, &lt;em&gt;id&lt;/em&gt;, etc. I've got the optional switches, but that's not extremely helpful if you don't know the rest. I'm looking around still to see if there is another syntax for zsh autocomplete to make this a little easier. I'll keep you posted on the progress, but I think this is a great start.&lt;/p&gt;
+
+&lt;p&gt;Once again:&lt;br&gt;
+My &lt;a href=&quot;https://github.com/rbirnie&quot;&gt;github&lt;/a&gt;&lt;br&gt;
+The &lt;a href=&quot;https://github.com/rbirnie/oh-my-zsh-nova&quot;&gt;nova plugin&lt;/a&gt;&lt;br&gt;
+The &lt;a href=&quot;https://github.com/openstack/python-novaclient&quot;&gt;nova installer&lt;/a&gt;&lt;br&gt;
+And &lt;a href=&quot;https://github.com/robbyrussell/oh-my-zsh&quot;&gt;oh-my-zsh&lt;/a&gt;&lt;/p&gt;
+
+
+      
+    </content>
+  </entry>
+  
+</feed>
