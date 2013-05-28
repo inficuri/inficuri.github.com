@@ -3,7 +3,7 @@
   <title>Uberobert</title>
   <link href="http://www.uberobert.com/feed.xml" rel="self" />
   <link href="/feed.xml" />
-  <updated>2013-05-28T16:25:34+08:00</updated>
+  <updated>2013-05-28T16:38:33+08:00</updated>
   <id>http://www.uberobert.com</id>
   <author>
     <name>Robert Birnie</name>
@@ -12,9 +12,9 @@
   
   <entry>
     <title>Test 1.</title>
-    <link href="http://www.uberobert.com/zsh_plugin_nova_cli" />
-    <updated>2013-01-11T00:00:00+08:00</updated>
-    <id>http://www.uberobert.com/zsh_plugin_nova_cli</id>
+    <link href="http://www.uberobert.com/Test1" />
+    <updated>2013-05-28T00:00:00+08:00</updated>
+    <id>http://www.uberobert.com/Test1</id>
     <content type="html">
       &lt;p&gt;This is just a test article. Don't click the link above.&lt;/p&gt;
 
