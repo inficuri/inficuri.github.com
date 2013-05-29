@@ -5,7 +5,7 @@ author:
   name: Robert Birnie
   url: http://uberobert.com
 ---
-
+llllllllllllllllll
 Just finished my Jenkins setup for this Jenkins blog. [Jenkins](http://jenkins-ci.org/) is a pretty sweet [Continuous Integration](http://en.wikipedia.org/wiki/Continuous_integration) server. Here's how it all went down: 
 
 ## Install Jenkins
