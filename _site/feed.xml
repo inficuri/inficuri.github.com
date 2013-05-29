@@ -3,25 +3,12 @@
   <title>Uberobert</title>
   <link href="http://www.uberobert.com/feed.xml" rel="self" />
   <link href="/feed.xml" />
-  <updated>2013-05-29T11:38:13+08:00</updated>
+  <updated>2013-05-29T12:04:41+08:00</updated>
   <id>http://www.uberobert.com</id>
   <author>
     <name>Robert Birnie</name>
     <email>robert@uberobert.com</email>
   </author>
-  
-  <entry>
-    <title>test</title>
-    <link href="http://www.uberobert.com/test" />
-    <updated>2013-05-29T11:28:00+08:00</updated>
-    <id>http://www.uberobert.com/test</id>
-    <content type="html">
-      &lt;p&gt;123112312313123&lt;br /&gt;
-bq. &lt;span class=&quot;caps&quot;&gt;BLOCKQUOTE&lt;/span&gt;&lt;/p&gt;
-
-      
-    </content>
-  </entry>
   
   <entry>
     <title>一个与直觉相悖的概率问题引发的严肃思考</title>
@@ -41,8 +28,9 @@ bq. &lt;span class=&quot;caps&quot;&gt;BLOCKQUOTE&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;请从下面ABC三个选项中选出与你的直觉最接近的：&lt;/p&gt;
 
-&lt;p&gt;A.90%   B.50%   C.10%
-/&lt;strong&gt;&lt;strong&gt;&lt;strong&gt;&lt;strong&gt;&lt;strong&gt;&lt;strong&gt;我是计算部分的分割线&lt;/strong&gt;&lt;/strong&gt;&lt;/strong&gt;&lt;/strong&gt;&lt;/strong&gt;&lt;/strong&gt;******/&lt;/p&gt;
+&lt;p&gt;A.90%   B.50%   C.10%&lt;/p&gt;
+
+&lt;p&gt;/&lt;strong&gt;&lt;strong&gt;&lt;strong&gt;&lt;strong&gt;&lt;strong&gt;&lt;strong&gt;我是计算部分的分割线&lt;/strong&gt;&lt;/strong&gt;&lt;/strong&gt;&lt;/strong&gt;&lt;/strong&gt;&lt;/strong&gt;******/&lt;/p&gt;
 
 &lt;p&gt;好了，下面我们开始计算这个概率，如果对概率论完全一窍不通可以参看任何一个概率课本的贝叶斯公式部分。&lt;/p&gt;
 
@@ -93,6 +81,25 @@ bq. &lt;span class=&quot;caps&quot;&gt;BLOCKQUOTE&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;embed src='http://player.56.com/cpm_OTE1NzQzNzA.swf'  type='application/x-shockwave-flash' width='480' height='405' allowFullScreen='true' allowNetworking='all' allowScriptAccess='always'&gt;&lt;/embed&gt;&lt;/p&gt;
 
 &lt;p&gt;笑崩啦！&lt;/p&gt;
+
+
+      
+    </content>
+  </entry>
+  
+  <entry>
+    <title>Sectarian Syria</title>
+    <link href="http://www.uberobert.com/sectarian_syria" />
+    <updated>2012-12-22T00:00:00+08:00</updated>
+    <id>http://www.uberobert.com/sectarian_syria</id>
+    <content type="html">
+      &lt;p&gt;There were quite a few articles around the web yesterday about a UN Report that the &lt;a href=&quot;http://www.latimes.com/news/world/worldnow/la-fg-wn-syria-united-nations-20121220,0,4358753.story&quot;&gt;Syria conflict turns 'overtly sectarian'&lt;/a&gt;. I know this is a little different topic from what I normally would write about, but the report is just so dumb that I must comment.&lt;/p&gt;
+
+&lt;p&gt;First off, the conflict in Syria is a revolution/revolt because the people aren't happy with their dictator. It is primarily led by the &lt;a href=&quot;http://en.wikipedia.org/wiki/Sunni_Islam&quot;&gt;Sunni Muslim&lt;/a&gt; who makeup the majority of the population, against the &lt;a href=&quot;http://en.wikipedia.org/wiki/Alawi&quot;&gt;Alawite sect&lt;/a&gt; among whom President Bashar Assad is a member. So to start off this has been a sectarian war, Sunni against Alawite, so I have no idea where the UN has been this whole time.&lt;/p&gt;
+
+&lt;p&gt;Further more, I would argue that any conflict in the Middle East is a &lt;a href=&quot;http://en.wikipedia.org/wiki/Sectarian_violence&quot;&gt;sectarian conflict&lt;/a&gt;. If there were to be a revolt in America, I'd venture a guess that it would be Democrats versus Republicans. This would not count as a sectarian conflict because of the lack of religion playing a part (this could be argued against as US political parties are an 'ideology', under this vein nearly all conflict is sectarian...). But in the Middle East, where there is no separation between Church and State, the political parties are almost exclusively built around religious sects. So any conflict between political parties is always going to involve sectarian conflict and sectarian violence. It is not just in the Middle East that you can see this, look at all the historical conflicts between Catholics and Protestants as well.&lt;/p&gt;
+
+&lt;p&gt;I'm unsure where the UN is going with their report. I think it would be better to report on how terrible conditions are or how horrid war is for those in Syria rather than just wasting news headlines by stating something so obvious.&lt;/p&gt;
 
 
       

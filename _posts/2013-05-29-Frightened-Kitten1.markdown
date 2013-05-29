@@ -11,3 +11,4 @@ author:
 <embed src='http://player.56.com/cpm_OTE1NzQzNzA.swf'  type='application/x-shockwave-flash' width='480' height='405' allowFullScreen='true' allowNetworking='all' allowScriptAccess='always'></embed>
 
 笑崩啦！
+
