@@ -2,7 +2,7 @@
 title: 一个与直觉相悖的概率问题引发的严肃思考 
 layout: default
 author:
-  name: eagele fantasy 
+  name: eagle fantasy 
   url: http://www.eaglefantasy.com/archives/613
 ---
 
