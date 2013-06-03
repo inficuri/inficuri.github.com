@@ -1,8 +1,0 @@
----
-title: 1
-layout: 1
-author:
-  name: 1
-  url: 1
----
-llllllllllllllllll
