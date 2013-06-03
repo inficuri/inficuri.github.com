@@ -1,49 +1,41 @@
 require 'yaml'
 require 'fileutils'
-require "highline/import"
-require "stringex"
-
-## -- Misc Configs -- ##
-source_dir      = "."    # source file directory
-posts_dir       = "_posts"    # directory for blog files
-new_post_ext    = "textile"  # default new post file extension when using the new_post task
-new_page_ext    = "textile"  # default new page file extension when using the new_page task
-server_port     = "4000"      # port for preview server eg. localhost:4000
-
-#######################
-# Working with Jekyll #
-#######################
-
-# usage rake new_post[my-new-post] or rake new_post['my new post'] or rake new_post (defaults to "new-post")
-desc "Begin a new post in #{source_dir}/#{posts_dir}"
-task :new_post, :title do |t, args|
-  raise "### You haven't set anything up yet. First run `rake install` to set up an Octopress theme." unless File.directory?(source_dir)
-  mkdir_p "#{source_dir}/#{posts_dir}"
-  args.with_defaults(:title => 'new-post')
-  title = args.title
-  filename = "#{source_dir}/#{posts_dir}/#{Time.now.strftime('%Y-%m-%d')}-#{title.to_url}.#{new_post_ext}"
-  if File.exist?(filename)
-    abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
-  end
-  puts "Creating new post: #{filename}"
-  puts "gvim #{filename}"
-  open(filename, 'w') do |post|
-    post.puts "---"
-    post.puts "layout: post"
-    post.puts "title: #{title.gsub(/&/,'&amp;')}"
-    post.puts "date: #{Time.now.strftime('%Y-%m-%d %H:%M')}"
-    post.puts "post-link:"
-    post.puts "---"
-    post.puts ""
-    post.puts "bq. BLOCKQUOTE"
-    post.puts ""
-  end
-end
-
 
 VENDOR_DIRECTORY = "vendor"
 DEPENDENCY_MANIFEST = "manifest.yml"
 PLUGIN_DIRECTORY = "_plugins"
+
+desc 'Begin a new post'
+task :post do   
+  ROOT_DIR = File.dirname(__FILE__)
+
+  title = ARGV[1]
+  tags = ARGV[2 ]
+
+  unless title
+    puts %{Usage: rake post "The Post Title"}
+    exit(-1)
+  end
+
+  datetime = Time.now.strftime('%Y-%m-%d')  # 30 minutes from now.
+  slug = title.strip.downcase.gsub(/ /, '-')
+
+  # E.g. 2006-07-16_11-41-batch-open-urls-from-clipboard.markdown
+  path = "#{ROOT_DIR}/_posts/#{datetime}-#{slug}.markdown"
+
+  header = <<-END
+---
+layout: post
+title: #{title}
+excerpt: 
+comments: true
+---
+
+END
+
+  File.open(path, 'w') {|f| f << header }
+  system("mate", path)    
+end  
 
 task :default do  
   puts 'Building ...'
