@@ -5,6 +5,38 @@ VENDOR_DIRECTORY = "vendor"
 DEPENDENCY_MANIFEST = "manifest.yml"
 PLUGIN_DIRECTORY = "_plugins"
 
+desc 'Begin a new post'
+task :post do   
+  ROOT_DIR = File.dirname(__FILE__)
+
+  title = ARGV[1]
+  tags = ARGV[2 ]
+
+  unless title
+    puts %{Usage: rake post "The Post Title"}
+    exit(-1)
+  end
+
+  datetime = Time.now.strftime('%Y-%m-%d')  # 30 minutes from now.
+  slug = title.strip.downcase.gsub(/ /, '-')
+
+  # E.g. 2006-07-16_11-41-batch-open-urls-from-clipboard.markdown
+  path = "#{ROOT_DIR}/_posts/#{datetime}-#{slug}.markdown"
+
+  header = <<-END
+---
+layout: post
+title: #{title}
+excerpt: 
+comments: true
+---
+
+END
+
+  File.open(path, 'w') {|f| f << header }
+  system("mate", path)    
+end  
+
 task :default do  
   puts 'Building ...'
   fetch_dependencies
